@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Buku</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #a0c4e9; }
+    .rekomendasi {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .book-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 1rem;
+      transition: transform 0.3s ease;
+    }
+    .book-card:hover { transform: translateY(-5px); }
+    .book-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+    .book-card .tag {
+      display: inline-block;
+      background-color: #2563eb;
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 5px;
+      margin-bottom: 0.5rem;
+    }
+    .book-card h3 { font-size: 1rem; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <header class="text-center py-4 bg-white shadow-sm">
+    <h1>Katalog Buku</h1>
+    <p class="text-muted">Semua koleksi buku tersedia di sini</p>
+  </header>
+
+  <!-- DAFTAR BUKU -->
+  <section class="rekomendasi">
+    <div class="book-card">
+      <img src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/picture_meta/2023/10/31/qbpt9apbq9i2exakece5mg.jpg" alt="Bumi">
+      <span class="tag">Fiksi Indonesia</span>
+      <h3>Jika Lukamu Sedalam Laut - patahan.ranting</h3>
+    </div>
+
+    <div class="book-card">
+      <img src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/picture_meta/2024/6/6/wbkuehwjbhu6w5cddj8ats.png" alt="Laut Bercerita">
+      <span class="tag">Fiksi Indonesia</span>
+      <h3>Aku Kalah, Aku Merindukanmu! - Coretan Lena</h3>
+    </div>
+
+    <div class="book-card">
+      <img src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/4e6c49ed0bc5d52cc91364facc93de03.jpg" alt="Hello">
+      <span class="tag">Fiksi Indonesia</span>
+      <h3>Nanti Juga Sembuh Sendiri - Helobagas</h3>
+    </div>
+
+    <div class="book-card">
+      <img src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/0b4d1eeac0565ce68cba23d22dd5d76b.jpg" alt="Saga dari Samudra">
+      <span class="tag">Fiksi Indonesia</span>
+      <h3>Sesekali Kita Butuh Sepi - Ikhsanudin</h3>
+    </div>
+
+    <div class="book-card">
+      <img src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/products/nmv1a6cna6.jpg" alt="Mirai">
+      <span class="tag">Fiksi Indonesia</span>
+      <h3>Aku Kalah dengan Orang Barumu - Coretan Lena</h3>
+    </div>
+
+    <div class="book-card">
+      <img src="https://cdn.gramedia.com/uploads/items/9786020639536_nebula_cov.jpg" alt="Nebula">
+      <span class="tag">Fiksi Indonesia</span>
+      <h3>Nebula</h3>
+    </div>
+
+     <div class="book-card">
+      <img src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/products/3-s-mntki2.jpg" alt="Nebula">
+      <span class="tag">Fiksi Indonesia</span>
+      <h3>Untuk Satu Nama yang Sulit Kuhapus</h3>
+    </div>
+
+     <div class="book-card">
+      <img src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/products/5d98139zna.jpeg" alt="Nebula">
+      <span class="tag">Fiksi Indonesia</span>
+      <h3>Berandal Bandung</h3>
+    </div>
+  </section>
+
+</body>
+</html>

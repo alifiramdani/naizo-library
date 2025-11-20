@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources / Study Materials</title>
+
+  <!-- Google Fonts: Playfair Display & Oswald -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@500&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Reset & Global Styles */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+      background-color: #f8f9fa;
+      color: #3a3a3a;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #3a3a3a;
+      margin: 0;
+    }
+
+    /* Header Styling - Mirip bagian atas E-Resources */
+    .header-section {
+      background-color: #002d4d;
+      /* Warna biru tua seperti header UB */
+      color: white;
+      text-align: left;
+      padding: 1.5rem 1.5rem;
+    }
+
+    .panduan-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0274be;
+    }
+
+    .dual-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .dual-header-first {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0274be;
+    }
+
+    .dual-header-second {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .guide-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .guide-text a {
+      color: #0274be;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .guide-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* Tombol Premium seperti pada halaman asli */
+    .premium-button {
+      display: inline-flex;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      color: #0274be;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.5rem 0;
+      transition: color 0.2s ease;
+    }
+
+    .premium-button svg {
+      width: 1em;
+      height: 1em;
+      margin-right: 0.5em;
+      fill: currentColor;
+    }
+
+    /* Tab Navigation untuk Video Panduan (Responsif) */
+    .video-tabs {
+      background-color: #f8f9fa;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-tabs {
+      border-bottom: 1px solid #ddd;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
+      /* Chrome/Safari */
+    }
+
+    .nav-tabs .nav-link {
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem;
+      color: #3a3a3a;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -1px;
+    }
+
+    .nav-tabs .nav-link.active {
+      color: #0274be;
+      border-bottom: 3px solid #0274be;
+      background-color: transparent;
+    }
+
+    .nav-tabs .nav-link:hover {
+      color: #0274be;
+    }
+
+    .tab-content {
+      padding: 1.5rem 0;
+    }
+
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 56.25%;
+      /* 16:9 Aspect Ratio */
+      background-color: #eee;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Bagian Utama: Daftar Resources */
+    .resources-main-section {
+      padding: 1.5rem;
+      background-color: #fff;
+    }
+
+    .resources-main-title {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #3a3a3a;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      /* Default 1 kolom untuk HP */
+      gap: 1.2rem;
+    }
+
+    @media (min-width: 576px) {
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 kolom untuk tablet kecil ke atas */
+      }
+    }
+
+    @media (min-width: 768px) {
+      .resources-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 kolom untuk tablet besar */
+      }
+    }
+
+    @media (min-width: 992px) {
+      .resources-grid {
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 kolom untuk desktop */
+      }
+    }
+
+    .resource-card {
+      text-align: center;
+      transition: transform 0.2s ease;
+      padding: 0.5rem;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .resource-card .main-image {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #198754;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 5px;
+      margin-bottom: 0.4rem;
+    }
+
+    .resource-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0.4rem 0;
+      line-height: 1.3;
+    }
+
+    .resource-card p {
+      font-size: 0.8rem;
+      color: #6c757d;
+      line-height: 1.4;
+    }
+
+    /* Responsif Tambahan */
+    @media (max-width: 576px) {
+      .header-section {
+        padding: 1.2rem 1rem;
+      }
+
+      .dual-header-first {
+        font-size: 1.6rem;
+      }
+
+      .dual-header-second {
+        font-size: 1.2rem;
+      }
+
+      .panduan-title {
+        font-size: 1rem;
+      }
+
+      .guide-text {
+        font-size: 0.9rem;
+      }
+
+      .premium-button {
+        font-size: 0.9rem;
+      }
+
+      .resources-main-title {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Bagian Atas: Panduan Akses -->
+  <section class="header-section">
+    <div class="container-fluid">
+      <p class="panduan-title">PANDUAN AKSES</p>
+      <div class="dual-header">
+        <h2 class="dual-header-first">RESOURCES</h2>
+        <h2 class="dual-header-second">/ Study Materials</h2>
+      </div>
+      <div class="guide-text">
+        <p>Koleksi materi belajar, buku referensi, dan sumber tambahan yang bisa mendukung proses pembelajaran.</p>
+        <p>Beberapa resource mungkin hanya dapat diakses melalui jaringan kampus atau koneksi yang telah diberi izin.
+        </p>
+        <p>Informasi lebih lanjut mengenai akses dapat dilihat pada situs resmi layanan terkait.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bagian Tab: Video Panduan (Lebih Responsif di HP) -->
+  <section class="video-tabs">
+      <button class="premium-button mt-2" onclick="window.open('#', '_blank')">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path
+                d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z">
+              </path>
+            </svg>
+            video Panduan download Resource
+          </button>
+    <div class="container-fluid">
+      <ul class="nav nav-tabs" id="videoTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="windows-tab" data-bs-toggle="tab" data-bs-target="#windows" type="button"
+            role="tab">Windows</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="macos-tab" data-bs-toggle="tab" data-bs-target="#macos" type="button"
+            role="tab">MacOS</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="android-tab" data-bs-toggle="tab" data-bs-target="#android" type="button"
+            role="tab">Android</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="videoTabContent">
+        <div class="tab-pane fade show active" id="windows" role="tabpanel">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Panduan EduVPN Windows"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="macos" role="tabpanel">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Panduan EduVPN macOS"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="android" role="tabpanel">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Panduan EduVPN Android"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bagian Utama: Daftar Resources -->
+  <section class="resources-main-section">
+    <h2 class="resources-main-title">Daftar Resources</h2>
+    <div class="resources-grid">
+
+      <div class="resource-card">
+        <img src="https://copilot.microsoft.com/th/id/BCO.d736d981-f781-4099-b56c-d6b085d13631.png" alt="Matematika Dasar"
+          class="main-image">
+        <span class="tag">Matematika</span>
+        <h3>Matematika Dasar</h3>
+      </div>
+
+      <div class="resource-card">
+        <img src="https://copilot.microsoft.com/th/id/BCO.ea48a45e-c759-4cce-b781-d31ffde469dd.png" alt="Fisika" class="main-image">
+        <span class="tag">Fisika</span>
+        <h3>Fisika Umum</h3>
+      </div>
+
+      <div class="resource-card">
+        <img src="https://copilot.microsoft.com/th/id/BCO.c4c57f51-4e93-44e9-a0ae-68dd093fa07e.png" alt="Biologi"
+          class="main-image">
+        <span class="tag">Biologi</span>
+        <h3>Biologi</h3>
+      </div>
+
+      <div class="resource-card">
+        <img src="https://copilot.microsoft.com/th/id/BCO.85b3de92-ac57-4890-b07e-4533e2786137.png" alt="Sejarah Dunia"
+          class="main-image">
+        <span class="tag">Sejarah</span>
+        <h3>Sejarah Dunia</h3>
+        <p>Buku referensi sejarah dunia dari zaman kuno hingga modern.</p>
+      </div>
+  </section>
+
+  <!-- Bootstrap JS (untuk fungsi tab) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

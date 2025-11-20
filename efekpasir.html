@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sand Clock of Time</title>
+    <link rel="icon" type="image/png" href="icon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+        }
+        canvas {
+            display: block; 
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white relative">
+
+    <h1 class="absolute top-8 left-1/2 -translate-x-1/2 text-1xl md:text-2xl font-mono 
+               tracking-widest text-[rgba(254, 249, 195, 0.9)] opacity-75 z-10
+               pointer-events-none select-none">
+        Sand Clock of Time
+    </h1>
+
+    <p id="message-text" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                              w-10/12 md:w-1/2 text-center text-xl md:text-4xl 
+                              font-serif text-[rgb(15,23,42)] leading-relaxed
+                              pointer-events-none select-none z-10">
+    </p>
+
+    <canvas id="sand-canvas" class="z-0"></canvas>
+
+    <audio id="ambient-sound" loop>
+        <source src="song.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <script src="app.js"></script>
+</body>
+</html>

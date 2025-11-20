@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naizo Library</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+    <div id="vanta-bg"></div>
+
+  <!-- Header / Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
+        <span class="d-flex align-items-center">
+          <img src="image/logo.png" alt="logo.png" width="40" class="me-2 rounded">
+          Naizo Library
+          <i data-feather="anchor" class="ms-2" style="width:18px; height:18px;"></i>
+        </span>
+      </a>
+
+      <!-- Tombol toggle buat HP -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="katalog.html">Katalog</a></li>
+          <li class="nav-item"><a class="nav-link" href="layanan.html">Layanan</a></li>
+          <li class="nav-item"><a class="nav-link" href="profil.html">Profil</a></li>
+        </ul>
+        <!-- My Account + Search -->
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">
+            My Account
+          </button>
+          <!-- Form search di navbar -->
+          <form id="navSearchForm" action="katalog.html" method="get" class="d-flex">
+            <input type="text" name="query" id="navSearchInput" class="form-control form-control-sm"
+              placeholder="Cari buku di katalog...">
+            <button type="submit" class="btn btn-outline-light btn-sm ms-2">Cari</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- My Account Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4 shadow-lg border-0 rounded-4">
+        <div class="modal-header border-0 position-relative">
+          <h5 class="modal-title fw-bold text-dark mx-auto" id="loginModalLabel">Login ke Naizo Library</h5>
+          <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
+            aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="text-center text-muted mb-4">Masuk dengan akun kamu untuk melanjutkan</p>
+          <form id="loginForm">
+            <div class="mb-3">
+              <input type="text" class="form-control border border-dark rounded-3" id="username" placeholder="Username"
+                required>
+            </div>
+            <div class="mb-3 position-relative">
+              <input type="password" class="form-control border border-dark rounded-3" id="password"
+                placeholder="Password" required>
+              <span id="togglePassword" class="position-absolute top-50 end-0 translate-middle-y me-3"
+                style="cursor: pointer;">
+                <i data-feather="eye"></i>
+              </span>
+            </div>
+            <button type="submit" class="btn btn-dark w-100 fw-semibold rounded-3">Masuk</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- BANNER -->
+  <section class="banner position-relative text-center" style="height: 100vh; overflow: hidden;">
+    <video autoplay muted loop playsinline style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%;
+         object-fit: cover; transform: translate(-50%, -50%); z-index: 0;
+         pointer-events: none;">
+      <source src="video/hd.mp4" type="video/mp4">
+    </video>
+
+    <!-- TEKS -->
+    <div class="banner-text position-absolute start-50 top-50 text-white px-3"
+      style="transform: translate(-50%, -60%); z-index: 1;">
+      <h1 class="fw-bold display-4 mb-3 fade-up delay-1">Naizo Library</h1>
+      <p class="lead mb-4 fade-up delay-2">Every book holds a treasure waiting to be discovered.</p>
+
+      <a href="efekpasir.html" target="_blank" class="fade-up" style="
+        display: inline-block;
+        text-decoration: none;
+        background-color: #2563eb;
+        color: white;
+        font-weight: 600;
+        padding: 10px 25px;
+        border-radius: 8px;
+        border: 2px solid #1d4ed8;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+     " onmouseover="this.style.backgroundColor='#1d4ed8'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.3)'; this.style.transform='translateY(-2px)'"
+        onmouseout="this.style.backgroundColor='#2563eb'; this.style.boxShadow='0 3px 6px rgba(0,0,0,0.2)'; this.style.transform='translateY(0)'">
+        <i data-feather='book-open' style='margin-right:8px; position:relative; top:2px;'></i> Start Reading
+      </a>
+
+      <!-- Tombol Play Music (Duplikat) -->
+      <a href="music.html" target="_blank" class="fade-up delay-1" style="
+        display: inline-block;
+        text-decoration: none;
+        background-color: #2563eb;
+        color: white;
+        font-weight: 600;
+        padding: 10px 25px;
+        border-radius: 8px;
+        border: 2px solid #1d4ed8;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        margin-top: 12px;
+     " onmouseover="this.style.backgroundColor='#1d4ed8'; 
+                  this.style.boxShadow='0 6px 12px rgba(0,0,0,0.3)'; 
+                  this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#2563eb'; 
+                 this.style.boxShadow='0 3px 6px rgba(0,0,0,0.2)'; 
+                 this.style.transform='translateY(0)'">
+        <i data-feather='music' style='margin-right:8px; position:relative; top:2px;'></i>
+        Play Music
+      </a>
+    </div>
+  </section>
+
+  <!-- WELCOME SECTION -->
+  <section class="welcome container my-5">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-6 text-col" style="max-width: 480px;">
+        <h1 class="mb-4 fade-left"><strong>Selamat Datang di<br><span class="text-primary">Naizo Library</span></strong></h1>
+        <div class="fade-left delay-1" style="white-space: pre-line; text-align: left; line-height: 1.0; font-size: 0.95rem;">
+          Naizo Library hadir sebagai pusat sumber belajar digital yang modern dan
+          mudah diakses oleh seluruh sivitas akademika UIN Salatiga. Dengan koleksi
+          yang terus berkembang, mulai dari e-book, jurnal, repository, hingga bahan
+          ajar multimedia, Naizo Library menjadi mitra terbaik dalam mendukung
+          kegiatan akademik, penelitian, dan pengembangan ilmu.
+        </div>
+        <script
+          src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+        <script>confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+          });
+        </script>
+      </div>
+      <!-- Kolom video -->
+      <div class="col-md-6">
+        <div class="video-glass p-3 rounded-4 video-border-fix">
+          <div class="video-inner">
+            <iframe width="109%" height="288" src="https://www.youtube.com/embed/5sXo3CJYCE4?si=T9rwUR5MTiquY8rT"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen class="rounded-4 video-iframe-fix">
+            </iframe>
+            <!-- Stiker nempel ke video -->
+            <img src="https://i.pinimg.com/1200x/c6/21/36/c621369469e55393764bac568bbd78ff.jpg"
+              alt="Stiker Nailongg Lucu" class="stiker-nailongg" id="stikerNailong">
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="content">
+    <div class="news-updates">
+      <h2>📰 News & Updates</h2>
+      <div id="news-list"></div>
+    </div>
+
+    <div class="announcements">
+      <h2>📢 Pengumuman</h2>
+      <div id="announcement-list"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-5 mt-5">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <div class="mb-4 mb-md-0">
+          <div class="d-flex align-items-center mb-2">
+            <i data-feather="anchor" class="text-danger me-2" style="width:22px; height:22px;"></i>
+            <span class="fw-bold fs-5">Naizo Library</span>
+          </div>
+          <p class="text-secondary mb-0">
+            Jl. Nakula Sadewa No. 2, Salatiga - (0298) 123456 - Email: library@uin-salatiga.ac.id
+          </p>
+          <p class="text-secondary mb-0">
+            © Hak Cipta 2022 - Perpustakaan Universitas Islam Negeri Salatiga
+          </p>
+        </div>
+        <div class="d-flex gap-4">
+          <a href="#" class="text-white-50 hover-text-danger"><i data-feather="twitter"></i></a>
+          <a href="#" class="text-white-50 hover-text-danger"><i data-feather="instagram"></i></a>
+          <a href="#" class="text-white-50 hover-text-danger"><i data-feather="github"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.clouds.min.js"></script>
+<script src="vanta.js"></script>
+
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script> feather.replace();</script>
+
+  <script>
+    const stiker = document.getElementById("stikerNailong");
+
+    let isDragging = false;
+    let moved = false;
+
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    let offsetX = 0;
+    let offsetY = 0;
+
+    // ===== SYNC POSISI AWAL CSS → JS =====
+    currentX = stiker.offsetLeft;
+    currentY = stiker.offsetTop;
+    targetX = currentX;
+    targetY = currentY;
+
+    // ===== ANIMASI SUPER SMOOTH =====
+    function animate() {
+      // smoothing (0.35 = ultra smooth; makin besar makin responsif)
+      const speed = 0.35;
+
+      currentX += (targetX - currentX) * speed;
+      currentY += (targetY - currentY) * speed;
+
+      stiker.style.left = currentX + "px";
+      stiker.style.top = currentY + "px";
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // ===== START DRAG =====
+    function startDrag(e) {
+      isDragging = true;
+      moved = false;
+
+      let pos = e.touches ? e.touches[0] : e;
+
+      offsetX = pos.clientX - targetX;
+      offsetY = pos.clientY - targetY;
+
+      document.addEventListener("mousemove", drag);
+      document.addEventListener("touchmove", drag, { passive: false });
+      document.addEventListener("mouseup", stopDrag);
+      document.addEventListener("touchend", stopDrag);
+
+      stiker.style.transition = "none";
+    }
+
+    stiker.addEventListener("mousedown", startDrag);
+    stiker.addEventListener("touchstart", startDrag);
+
+    // ===== DRAG =====
+    function drag(e) {
+      if (!isDragging) return;
+      moved = true;
+
+      let pos = e.touches ? e.touches[0] : e;
+
+      targetX = pos.clientX - offsetX;
+      targetY = pos.clientY - offsetY;
+
+      e.preventDefault(); // stop scroll saat drag
+    }
+
+    // ===== STOP DRAG =====
+    function stopDrag() {
+      isDragging = false;
+
+      document.removeEventListener("mousemove", drag);
+      document.removeEventListener("touchmove", drag);
+      document.removeEventListener("mouseup", stopDrag);
+      document.removeEventListener("touchend", stopDrag);
+    }
+
+    // ===== KLIK GOYANG =====
+    stiker.addEventListener("click", () => {
+      if (moved) return;
+
+      stiker.classList.add("goyang");
+      setTimeout(() => stiker.classList.remove("goyang"), 500);
+    });
+  </script>
+  <script src="news.js"></script>
+</body>
+
+</html>

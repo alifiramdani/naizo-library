@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog - Naizo Library</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/katalog.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* === LOGIN MODAL STYLE === */
+        .modal-content {
+            background: #ffffffcc;
+            /* putih transparan */
+            backdrop-filter: blur(10px);
+            /* efek kaca */
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .modal-content:hover {
+            transform: scale(1.01);
+        }
+
+        .modal-title {
+            color: #1b1b1b;
+        }
+
+        .btn-dark {
+            background-color: #1B7F97 !important;
+            border: none;
+        }
+
+        .btn-dark:hover {
+            background-color: #145b6d !important;
+        }
+
+        /* =============================
+           KATALOG SECTION
+           ============================= */
+        #katalog {
+            margin-top: 30px;
+            /* naik mendekati banner */
+        }
+
+        /* Card Style */
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            background: #ffffff;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .card-img-top:hover {
+            transform: scale(1.08) rotate(-1deg);
+            filter: brightness(1.1);
+            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
+        }
+
+        .card-title {
+            font-weight: 700;
+            color: #222;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        h2.text-center {
+            color: #1e40af;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .card-img-top {
+                height: 160px;
+            }
+
+            h2.text-center {
+                font-size: 1.5rem;
+            }
+
+            #katalog {
+                margin-top: 28px;
+            }
+
+            .banner-text {
+                top: 25%;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
+                <img src="image/logo.png" alt="logo.png" width="40" class="me-2 rounded">
+                Naizo Library
+                <i data-feather="anchor" class="ms-2" style="width:18px; height:18px;"></i>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="katalog.html">Katalog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="layanan.html">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profil.html">Profil</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        My Account
+                    </button>
+                    <form id="navSearchForm" action="katalog.html" method="get" class="d-flex">
+                        <input type="text" name="query" id="navSearchInput" class="form-control form-control-sm"
+                            placeholder="Cari buku di katalog...">
+                        <button type="submit" class="btn btn-outline-light btn-sm ms-2">Cari</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- My Account Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4 shadow-lg border-0 rounded-4">
+                <div class="modal-header border-0 position-relative">
+                    <h5 class="modal-title fw-bold text-dark mx-auto" id="loginModalLabel">Login ke Naizo Library</h5>
+                    <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center text-muted mb-4">Masuk dengan akun kamu untuk melanjutkan</p>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control border border-dark rounded-3" id="username"
+                                placeholder="Username" required>
+                        </div>
+                        <div class="mb-3 position-relative">
+                            <input type="password" class="form-control border border-dark rounded-3" id="password"
+                                placeholder="Password" required>
+                            <span id="togglePassword" class="position-absolute top-50 end-0 translate-middle-y me-3"
+                                style="cursor: pointer;">
+                                <i data-feather="eye"></i>
+                            </span>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100 fw-semibold rounded-3">Masuk</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Account Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4 shadow-lg border-0 rounded-4">
+                <div class="modal-header border-0 position-relative">
+                    <h5 class="modal-title fw-bold text-dark mx-auto" id="loginModalLabel">Login ke Naizo Library</h5>
+                    <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center text-muted mb-4">Masuk dengan akun kamu untuk melanjutkan</p>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control border border-dark rounded-3" id="username"
+                                placeholder="Username" required>
+                        </div>
+                        <div class="mb-3 position-relative">
+                            <input type="password" class="form-control border border-dark rounded-3" id="password"
+                                placeholder="Password" required>
+                            <span id="togglePassword" class="position-absolute top-50 end-0 translate-middle-y me-3"
+                                style="cursor: pointer;">
+                                <i data-feather="eye"></i>
+                            </span>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100 fw-semibold rounded-3">Masuk</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KATALOG -->
+    <section id="katalog" class="container">
+        <h2 class="text-center fw-bold mb-5">Featured Collections</h2>
+        <div class="row g-4">
+            <!-- Manga Collection -->
+            <div class="col-md-4">
+                <a href="katalog-buku.html" style="text-decoration: none; color: inherit;">
+                <div class="card h-100 shadow-sm">
+                    <img alt="Manga Collection" class="card-img-top"
+                        src="https://images2.alphacoders.com/135/thumbbig-1350518.webp" />
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold"><i class="bi bi-book text-danger me-2"></i>Novel Collection</h5>
+                        <p class="card-text text-muted">Seluruh kisah, dari awal perjalanan hingga bab terbaru.</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <!-- Character Database -->
+            <div class="col-md-4">
+                <a href="new-arrivals.html" style="text-decoration: none; color: inherit;">
+                <div class="card h-100 shadow-sm">
+                    <img alt="Character Database" class="card-img-top"
+                        src="https://p4.wallpaperbetter.com/wallpaper/673/413/135/anime-one-piece-brook-one-piece-franky-one-piece-wallpaper-preview.jpg" />
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold"><i class="bi bi-people text-danger me-2"></i>Character Database
+                        </h5>
+                        <p class="card-text text-muted">Profil mendalam tentang setiap bajak laut, marinir, dan pejuang
+                            revolusi di dunia One Piece.</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <!-- Devil Fruits -->
+            <div class="col-md-4">
+                <a href="resources.html" style="text-decoration: none; color: inherit;">
+                <div class="card h-100 shadow-sm">
+                    <img alt="Devil Fruits" class="card-img-top"
+                        src="https://p4.wallpaperbetter.com/wallpaper/392/162/453/anime-one-piece-brook-one-piece-franky-one-piece-wallpaper-preview.jpg" />
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold"><i class="bi bi-activity text-danger me-2"></i>Resources</h5>
+                        <p class="card-text text-muted">Katalog lengkap berisi seluruh Buah Iblis yang diketahui dan
+                            kemampuan masing-masingnya.</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="mb-4 mb-md-0">
+                    <div class="d-flex align-items-center mb-2">
+                        <i data-feather="anchor" class="text-danger me-2" style="width:22px; height:22px;"></i>
+                        <span class="fw-bold fs-5">Naizo Library</span>
+                    </div>
+                    <p class="text-secondary mb-0">
+                        Jl. Nakula Sadewa No. 2, Salatiga - (0298) 123456 - Email: library@uin-salatiga.ac.id
+                    </p>
+                    <p class="text-secondary mb-0">
+                        © Hak Cipta 2022 - Perpustakaan Universitas Islam Negeri Salatiga
+                    </p>
+                </div>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-white-50 hover-text-danger"><i data-feather="twitter"></i></a>
+                    <a href="#" class="text-white-50 hover-text-danger"><i data-feather="instagram"></i></a>
+                    <a href="#" class="text-white-50 hover-text-danger"><i data-feather="github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* === LOGIN MODAL STYLE === */
+        .modal-content {
+            background: #ffffffcc;
+            /* putih transparan */
+            backdrop-filter: blur(10px);
+            /* efek kaca */
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .modal-content:hover {
+            transform: scale(1.01);
+        }
+
+        .modal-title {
+            color: #1b1b1b;
+        }
+
+        .btn-dark {
+            background-color: #1B7F97 !important;
+            border: none;
+        }
+
+        .btn-dark:hover {
+            background-color: #145b6d !important;
+        }
+
+        /* =============================
+           BANNER
+           ============================= */
+        .banner {
+            position: relative;
+            text-align: center;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .banner-text {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+            z-index: 2;
+        }
+
+        /* =============================
+           LAYANAN
+           ============================= */
+        #layanan {
+            margin-top: -150px;
+        }
+
+        .service-card .card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .service-card .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #e7f1ff;
+            color: #0d6efd;
+        }
+
+        .service-card .card-title {
+            font-weight: 700;
+        }
+
+        .service-card .card-text {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .card-img-top {
+            height: 190px;
+        }
+
+        @media (max-width: 768px) {
+            .card-img-top {
+                height: 200px;
+            }
+
+            h2.text-center {
+                font-size: 1.5rem;
+            }
+
+            .banner-text {
+                top: 45%;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
+                <img src="image/logo.png" alt="logo.png" width="40" class="me-2 rounded">
+                Naizo Library
+                <i data-feather="anchor" class="ms-2" style="width:18px; height:18px;"></i>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="katalog.html">Katalog</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="layanan.html">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profil.html">Profil</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        My Account
+                    </button>
+                    <form id="navSearchForm" action="katalog.html" method="get" class="d-flex">
+                        <input type="text" name="query" id="navSearchInput" class="form-control form-control-sm"
+                            placeholder="Cari buku di katalog...">
+                        <button type="submit" class="btn btn-outline-light btn-sm ms-2">Cari</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- My Account Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4 shadow-lg border-0 rounded-4">
+                <div class="modal-header border-0 position-relative">
+                    <h5 class="modal-title fw-bold text-dark mx-auto" id="loginModalLabel">Login ke Naizo Library</h5>
+                    <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center text-muted mb-4">Masuk dengan akun kamu untuk melanjutkan</p>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control border border-dark rounded-3" id="username"
+                                placeholder="Username" required>
+                        </div>
+                        <div class="mb-3 position-relative">
+                            <input type="password" class="form-control border border-dark rounded-3" id="password"
+                                placeholder="Password" required>
+                            <span id="togglePassword" class="position-absolute top-50 end-0 translate-middle-y me-3"
+                                style="cursor: pointer;">
+                                <i data-feather="eye"></i>
+                            </span>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100 fw-semibold rounded-3">Masuk</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4 shadow-lg border-0 rounded-4">
+                <div class="modal-header border-0 position-relative">
+                    <h5 class="modal-title fw-bold text-dark mx-auto">Login ke Naizo Library</h5>
+                    <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center text-muted mb-4">Masuk dengan akun kamu untuk melanjutkan</p>
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control border border-dark rounded-3" placeholder="Username"
+                                required>
+                        </div>
+                        <div class="mb-3 position-relative">
+                            <input type="password" class="form-control border border-dark rounded-3"
+                                placeholder="Password" required>
+                            <span class="position-absolute top-50 end-0 translate-middle-y me-3"
+                                style="cursor: pointer;">
+                                <i data-feather="eye"></i>
+                            </span>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100 fw-semibold rounded-3">Masuk</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner -->
+    <section class="banner">
+        <img src="image/banner-katalog.jpg" alt="Banner">
+        <div class="banner-text">
+            <h1 class="fw-bold display-4 mb-3">Layanan Perpustakaan</h1>
+        </div>
+    </section>
+
+    <!-- LAYANAN -->
+    <section id="layanan" class="container my-5">
+
+        <div class="row g-4" id="servicesGrid">
+
+            <!-- Card: Peminjaman -->
+            <div class="col-sm-6 col-md-4 service-card" data-title="Peminjaman Buku"
+                data-tags="peminjaman,buku,layanan">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="service-icon"><i class="bi bi-book"></i></div>
+                            <div>
+                                <h5 class="card-title mb-0">Peminjaman Buku</h5>
+                                <small class="text-muted">Pinjam koleksi cetak ke anggota terdaftar</small>
+                            </div>
+                        </div>
+                        <p class="card-text text-muted">
+                            Syarat: Kartu anggota, batas peminjaman 2 minggu, bisa diperpanjang secara online jika
+                            tersedia.
+                        </p>
+                        <div class="mt-auto d-grid">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                data-title="Peminjaman Buku"
+                                data-desc="Pinjam koleksi cetak hingga 2 minggu. Perpanjangan lewat akun online.">Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Ruang Baca -->
+            <div class="col-sm-6 col-md-4 service-card" data-title="Ruang Baca & Diskusi"
+                data-tags="ruang,ruang baca,diskusi">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="service-icon"><i class="bi bi-people"></i></div>
+                            <div>
+                                <h5 class="card-title mb-0">Ruang Baca & Diskusi</h5>
+                                <small class="text-muted">Ruang untuk belajar kelompok dan seminar kecil</small>
+                            </div>
+                        </div>
+                        <p class="card-text text-muted">
+                            Reservasi ruang bisa dilakukan via form online atau datang langsung ke layanan informasi.
+                        </p>
+                        <div class="mt-auto d-grid">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                data-title="Ruang Baca & Diskusi"
+                                data-desc="Reservasi ruang via form online.">Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: E-Resources -->
+            <div class="col-sm-6 col-md-4 service-card" data-title="E-Resources" data-tags="ebook,journal,e-resources">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="service-icon"><i class="bi bi-laptop"></i></div>
+                            <div>
+                                <h5 class="card-title mb-0">Akses E-Resources</h5>
+                                <small class="text-muted">E-book, jurnal, dan database akademik</small>
+                            </div>
+                        </div>
+                        <p class="card-text text-muted">
+                            Akses e-book, jurnal, dan database akademik menggunakan akun institusi.
+                        </p>
+                        <div class="mt-auto d-grid">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                data-title="E-Resources"
+                                data-desc="Akses e-book dan jurnal melalui portal perpustakaan.">Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Layanan Referensi -->
+            <div class="col-sm-6 col-md-4 service-card" data-title="Layanan Referensi"
+                data-tags="referensi,bantuan,penelitian">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="service-icon"><i class="bi bi-question-circle"></i></div>
+                            <div>
+                                <h5 class="card-title mb-0">Layanan Referensi</h5>
+                                <small class="text-muted">Bantuan penelusuran sumber & sitasi</small>
+                            </div>
+                        </div>
+                        <p class="card-text text-muted">
+                            Petugas referensi siap membantu pencarian literatur dan tata sitasi sesuai standar akademik.
+                        </p>
+                        <div class="mt-auto d-grid">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                data-title="Layanan Referensi"
+                                data-desc="Bantuan pencarian sumber & sitasi">Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Pelatihan Literasi -->
+            <div class="col-sm-6 col-md-4 service-card" data-title="Pelatihan Literasi"
+                data-tags="pelatihan,workshop,literasi">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="service-icon"><i class="bi bi-mortarboard"></i></div>
+                            <div>
+                                <h5 class="card-title mb-0">Pelatihan Literasi</h5>
+                                <small class="text-muted">Workshop literasi informasi</small>
+                            </div>
+                        </div>
+                        <p class="card-text text-muted">
+                            Jadwal rutin tiap semester: pendaftaran via web atau langsung ke layanan.
+                        </p>
+                        <div class="mt-auto d-grid">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                data-title="Pelatihan Literasi"
+                                data-desc="Workshop penelusuran & manajemen referensi">Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Baru: Koleksi Digital -->
+            <div class="col-sm-6 col-md-4 service-card" data-title="Koleksi Digital" data-tags="digital,koleksi,online">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="service-icon"><i class="bi bi-cloud-download"></i></div>
+                            <div>
+                                <h5 class="card-title mb-0">Koleksi Digital</h5>
+                                <small class="text-muted">Unduh modul, skripsi, & dokumen digital</small>
+                            </div>
+                        </div>
+                        <p class="card-text text-muted">
+                            Koleksi digital kampus tersedia untuk diunduh menggunakan login institusi.
+                        </p>
+                        <div class="mt-auto d-grid">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal"
+                                data-title="Koleksi Digital"
+                                data-desc="Akses modul & dokumen digital kampus.">Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> <!-- end .row -->
+
+        <!-- Jika tidak ditemukan -->
+        <div id="noService" class="text-center text-muted mt-4" style="display:none">
+            Tidak ada layanan yang sesuai.
+        </div>
+
+        <!-- kontak singkat -->
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h5>Kontak Layanan</h5>
+                <p class="text-muted mb-1">Butuh bantuan lebih lanjut? Hubungi petugas layanan perpustakaan:</p>
+                <p class="mb-0"><strong>Tel:</strong> (0298) 123456</p>
+                <p><strong>Email:</strong> <a href="mailto:library@uin-salatiga.ac.id">library@uin-salatiga.ac.id</a>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <h5>Form Reservasi / Pertanyaan</h5>
+                <form id="contactForm" class="row g-2">
+                    <div class="col-12">
+                        <input type="text" class="form-control form-control-sm" placeholder="Nama" required>
+                    </div>
+                    <div class="col-12">
+                        <input type="email" class="form-control form-control-sm" placeholder="Email" required>
+                    </div>
+                    <div class="col-12">
+                        <textarea class="form-control form-control-sm" rows="2"
+                            placeholder="Pesan / Permintaan reservasi" required></textarea>
+                    </div>
+                    <div class="col-12 text-end">
+                        <button class="btn btn-primary btn-sm" type="submit">Kirim</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="mb-4 mb-md-0">
+                    <div class="d-flex align-items-center mb-2">
+                        <i data-feather="anchor" class="text-danger me-2" style="width:22px; height:22px;"></i>
+                        <span class="fw-bold fs-5">Naizo Library</span>
+                    </div>
+                    <p class="text-secondary mb-0">Jl. Nakula Sadewa No. 2, Salatiga - (0298) 123456 - Email:
+                        library@uin-salatiga.ac.id
+                    </p>
+                    <p class="text-secondary mb-0">© Hak Cipta 2022 - Perpustakaan Universitas Islam Negeri Salatiga
+                    </p>
+                </div>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-white-50 hover-text-danger"><i data-feather="twitter"></i></a>
+                    <a href="#" class="text-white-50 hover-text-danger"><i data-feather="instagram"></i></a>
+                    <a href="#" class="text-white-50 hover-text-danger"><i data-feather="github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>

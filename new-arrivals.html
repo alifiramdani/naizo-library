@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Arrivals - Buku Baru</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #acb8c1; }
+    header { background: #f7f4f4; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    header h1 { margin: 0; padding: 1rem 0; }
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .book-card {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 1rem;
+      transition: transform 0.3s ease;
+    }
+    .book-card:hover { transform: translateY(-5px); }
+    .book-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+    .book-card .tag {
+      display: inline-block;
+      background-color: #ffc107;
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 5px;
+      margin-bottom: 0.5rem;
+    }
+    .book-card h3 { font-size: 1rem; font-weight: 600; }
+    .book-card p { font-size: 0.85rem; color: #6c757d; }
+  </style>
+</head>
+<body>
+
+<header class="text-center">
+  <h1>New Arrivals</h1>
+  <p class="text-muted">Kumpulan buku terbaru yang baru saja ditambahkan ke perpustakaan</p>
+</header>
+
+<!-- GRID BUKU BARU -->
+<section class="book-grid">
+
+  <div class="book-card">
+    <img src="https://cdn.gramedia.com/uploads/items/Eccedentesiast.jpg" alt="Buku 1">
+    <span class="tag">Fiksi</span>
+    <h3>Eccedentesiast</h3>
+  </div>
+
+  <div class="book-card">
+    <img src="https://cdn.gramedia.com/uploads/items/9786020729091_AYANGAN_PUTUS_dpn.jpg" alt="Buku 2">
+    <span class="tag">Fiksi</span>
+    <h3>Layangan Putus</h3>
+  </div>
+
+  <div class="book-card">
+    <img src="https://cdn.gramedia.com/uploads/picture_meta/2024/1/18/gk8tynv5axn3vt55f3juh9.jpg" alt="Buku 3">
+    <span class="tag">Teknologi</span>
+    <h3>Belajar Pemrograman Web untuk Pemula</h3>
+   
+  </div>
+
+  <div class="book-card">
+    <img src="https://ebooks.gramedia.com/ebook-covers/6027/general_small_covers/ID_EMK2013MTH07IDRT_S.jpg" alt="Buku 4">
+    <span class="tag">Teknologi</span>
+    <h3>Inspirasi Desain Rumah Tinggal</h3>
+  </div>
+
+  <div class="book-card">
+    <img src="https://perpustakaan.jakarta.go.id/catalog-dispusip/uploaded_files/sampul_koleksi/original/Monograf/277909.jpg" alt="Buku 5">
+    <span class="tag">Sastra</span>
+    <h3>Seni Rupa Indonesia dalam Kritik dan Esai</h3>
+  </div>
+
+  <div class="book-card">
+    <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1463643717i/1910299.jpg" alt="Buku 6">
+    <span class="tag">Biografi</span>
+    <h3>Tokoh Inspiratif</h3>
+  </div>
+
+</section>
+
+</body>
+</html>
