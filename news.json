@@ -1,0 +1,31 @@
+{
+  "news": [
+    {
+      "title": "Perpustakaan Buka Layanan Baru",
+      "desc": "Mulai minggu depan, perpustakaan menambah jam operasional hingga pukul 19.00 WIB.",
+      "image": "https://i.pinimg.com/736x/cf/63/c8/cf63c865697ad1d54bcc25a1f1483cef.jpg",
+      "link": "#"
+    },
+    {
+      "title": "Update Koleksi E-Book",
+      "desc": "Kini tersedia lebih dari 500 e-book baru untuk seluruh mahasiswa.",
+      "image": "https://i.pinimg.com/736x/27/6e/74/276e7442ddabe06f5724f0324f306f54.jpg",
+      "link": "#"
+    }
+  ],
+
+  "announcements": [
+    {
+      "title": "Pengumuman Libur Nasional",
+      "desc": "Perpustakaan tutup pada tanggal 25 Desember dalam rangka libur nasional.",
+      "image": "https://i.pinimg.com/1200x/aa/8d/42/aa8d422872848b55d585b687306288e4.jpg",
+      "link": "#"
+    },
+    {
+      "title": "Pendaftaran Volunteer Dibuka",
+      "desc": "Ayo daftar jadi volunteer perpustakaan untuk periode Januari-Maret.",
+      "image": "https://i.pinimg.com/1200x/03/cf/74/03cf7419e7fa8c3983938d6760ae2652.jpg",
+      "link": "#"
+    }
+  ]
+}
